@@ -1,0 +1,17 @@
+<resources>
+    <string name="app_name">Despensa</string>
+    <string-array name="local_armazen">
+        <item>Armário</item>
+        <item>Geladeira</item>
+    </string-array>
+
+    <string-array name="categorias_add_itens">
+        <item>Bebidas</item>
+        <item>Frutas</item>
+        <item>Não perecíveis</item>
+        <item>Temperos</item>
+        <item>Outros</item>
+    </string-array>
+
+
+</resources>
