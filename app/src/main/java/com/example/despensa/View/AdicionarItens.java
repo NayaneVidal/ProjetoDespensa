@@ -3,6 +3,7 @@ package com.example.despensa.View;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.ImageButton;
@@ -12,8 +13,8 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.example.despensa.R;
 import com.example.despensa.API.UsarMetodo;
+import com.example.despensa.R;
 import com.google.zxing.integration.android.IntentIntegrator;
 import com.google.zxing.integration.android.IntentResult;
 
@@ -22,6 +23,7 @@ public class AdicionarItens extends AppCompatActivity {
     ImageButton imgbtnEAN, imgbtnMenosUm, imgbtMaisUm, imgbtnSalvar, imgbtnCancelar;
     EditText edtEAN, edtNomeProd, edtDataValidade;
     TextView tvQuantidade;
+    String categoriaSpnn, localSpnn;
 
     @Override
 
@@ -94,6 +96,33 @@ public class AdicionarItens extends AppCompatActivity {
                 limparCampos();
             }
         });
+
+        spnncategoria.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+//                Auxiliares.alert(getApplicationContext(),spnncategoria.getItemAtPosition(i).toString());
+                categoriaSpnn = spnncategoria.getItemAtPosition(i).toString();
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> adapterView) {
+
+            }
+        });
+
+        spnnLocal.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+//                Auxiliares.alert(getApplicationContext(),spnnLocal.getItemAtPosition(i).toString());
+                localSpnn = spnnLocal.getItemAtPosition(i).toString();
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> adapterView) {
+
+            }
+        });
+
 
     }
 

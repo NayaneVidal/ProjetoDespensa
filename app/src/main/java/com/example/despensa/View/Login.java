@@ -124,14 +124,10 @@ public class Login extends AppCompatActivity {
         edtUser = findViewById(R.id.edtUser);
         edtPwd = findViewById(R.id.edtPwd);
         btnLogin = findViewById(R.id.btnLogin);
-        tvUsuario = findViewById(R.id.tvUsuario);
+        tvUsuario = findViewById(R.id.tvEmail);
         tvSenha = findViewById(R.id.tvSenha);
         tvCriarConta = findViewById(R.id.tvCriarConta);
-//        edtUser.setText("saw@gmail.com");
-//        edtPwd.setText("9");
 
-        edtUser.setText("carlos@gmail.com");
-        edtPwd.setText("1234");
     }
 
     public void sair(View view) {

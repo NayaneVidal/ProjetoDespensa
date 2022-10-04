@@ -51,10 +51,17 @@ public class LoginController {
         int resposta = 0;
         try {
             PreparedStatement pst = ConexaoSQLServer.conectar(context).prepareStatement(
-                    "INSERT INTO tbUsuario(eMail,senha) values (?,?)"
+                    "INSERT INTO USUARIO(nome,email,senha) values (?,?,?)"
+
+//            PreparedStatement pst = ConexaoSQLServer.conectar(context).prepareStatement(
+//                    "INSERT INTO USUARIO(email,senha) values (?,?)"
+//
+//
+
             );
-            pst.setString(1, loginModel.getEmail());
-            pst.setString(2, loginModel.getSenha());
+            pst.setString(1, loginModel.getNome());
+            pst.setString(2, loginModel.getEmail());
+            pst.setString(3, loginModel.getSenha());
             resposta = pst.executeUpdate();
 
         } catch (Exception e) {

@@ -3,8 +3,21 @@ package com.example.despensa.Model;
 public class LoginModel {
 
     private int idUsuario;
+
+
+
+    private String nome;
     private String email;
     private String senha;
+
+
+    public String getNome() {
+        return nome;
+    }
+
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
 
     public int getIdUsuario() {
         return idUsuario;
