@@ -127,6 +127,8 @@ public class Login extends AppCompatActivity {
         tvUsuario = findViewById(R.id.tvEmail);
         tvSenha = findViewById(R.id.tvSenha);
         tvCriarConta = findViewById(R.id.tvCriarConta);
+        edtUser.setText("boner@gmail.com");
+        edtPwd.setText("123");
 
     }
 

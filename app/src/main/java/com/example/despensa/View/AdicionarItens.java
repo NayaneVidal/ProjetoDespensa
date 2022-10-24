@@ -13,7 +13,10 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.despensa.API.Auxiliares;
 import com.example.despensa.API.UsarMetodo;
+import com.example.despensa.Controller.AdicionarItensController;
+import com.example.despensa.Model.AdicionarItensModel;
 import com.example.despensa.R;
 import com.google.zxing.integration.android.IntentIntegrator;
 import com.google.zxing.integration.android.IntentResult;
@@ -23,7 +26,10 @@ public class AdicionarItens extends AppCompatActivity {
     ImageButton imgbtnEAN, imgbtnMenosUm, imgbtMaisUm, imgbtnSalvar, imgbtnCancelar;
     EditText edtEAN, edtNomeProd, edtDataValidade;
     TextView tvQuantidade;
-    String categoriaSpnn, localSpnn;
+    String categoriaSpnn, localSpnn, idCategoria, idLocal;
+    AdicionarItensModel adicionarItensModel;
+    AdicionarItensController adicionarItensController;
+
 
     @Override
 
@@ -32,6 +38,7 @@ public class AdicionarItens extends AppCompatActivity {
         setContentView(R.layout.activity_adicionar_itens);
 
         inicializarComponentes();
+
 
         //Lista dos spinners
         ArrayAdapter adapter = ArrayAdapter.createFromResource(this, R.array.local_armazen, android.R.layout.simple_spinner_item
@@ -92,8 +99,29 @@ public class AdicionarItens extends AppCompatActivity {
         imgbtnSalvar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                UsarMetodo.alert("Produto adicionado!", getApplicationContext());
-                limparCampos();
+//                UsarMetodo.alert("Produto adicionado!", getApplicationContext());
+//                limparCampos();
+
+                adicionarItensModel = new AdicionarItensModel();
+
+                adicionarItensModel.setNomeProd(edtNomeProd.getText().toString());
+                adicionarItensModel.setDataValidade(edtDataValidade.getText().toString());
+                adicionarItensModel.setEan(edtEAN.getText().toString());
+                adicionarItensModel.setTvQuantidade(tvQuantidade.getText().toString());
+                adicionarItensModel.setSpnnCategoria(idCategoria);
+                adicionarItensModel.setSpnnLocal(idLocal);
+
+
+                adicionarItensController = new AdicionarItensController();
+
+                //Se validar retorna valor 0 ou menor, então não adicionou o produto
+                int validar = adicionarItensController.cadastrarProdutos(adicionarItensModel, getApplicationContext());
+                if (validar > 0) {
+                    Auxiliares.alert(getApplicationContext(), "Produto adicionado!");
+                    limparCampos();
+                } else {
+                    Auxiliares.alert(getApplicationContext(), "Erro no cadastro!");
+                }
             }
         });
 
@@ -101,7 +129,21 @@ public class AdicionarItens extends AppCompatActivity {
             @Override
             public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
 //                Auxiliares.alert(getApplicationContext(),spnncategoria.getItemAtPosition(i).toString());
+//                categoriaSpnn = spnncategoria.getItemAtPosition(i).toString();
                 categoriaSpnn = spnncategoria.getItemAtPosition(i).toString();
+
+                if (categoriaSpnn.equals("Bebidas")) {
+                    idCategoria = "1";
+                } else if (categoriaSpnn.equals("Frutas")) {
+                    idCategoria = "2";
+                } else if (categoriaSpnn.equals("Não perecíveis")) {
+                    idCategoria = "3";
+                } else if (categoriaSpnn.equals("Temperos")) {
+                    idCategoria = "4";
+                } else if (categoriaSpnn.equals("Outros")) {
+                    idCategoria = "5";
+                }
+
             }
 
             @Override
@@ -115,6 +157,12 @@ public class AdicionarItens extends AppCompatActivity {
             public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
 //                Auxiliares.alert(getApplicationContext(),spnnLocal.getItemAtPosition(i).toString());
                 localSpnn = spnnLocal.getItemAtPosition(i).toString();
+
+                if (localSpnn.equals("Geladeira")) {
+                    idLocal = "1";
+                } else if (localSpnn.equals("Armário")) {
+                    idLocal = "2";
+                }
             }
 
             @Override
