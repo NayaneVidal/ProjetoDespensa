@@ -42,6 +42,9 @@ public class TelaCadastro extends AppCompatActivity {
                 } else if (TextUtils.isEmpty(edtSenhaCad.getText().toString())) {
                     edtSenhaCad.setError("Obrigatório *");
                     edtSenhaCad.requestFocus();
+                } else if (TextUtils.isEmpty(edtNomeCadastro.getText().toString())) {
+                    edtNomeCadastro.setError("Obrigatório *");
+                    edtNomeCadastro.requestFocus();
                 } else if (!Auxiliares.validEmail(edtEmailCad.getText().toString().trim())) {
                     Auxiliares.alertCustom(getApplicationContext(), "Formato do e-mail incorreto");
                     edtEmailCad.requestFocus();

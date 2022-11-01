@@ -100,20 +100,20 @@ public class Login extends AppCompatActivity {
         try {
             if (conn != null) {
                 if (!conn.isClosed())
-//                    setTitle("CONEXAO REALIZADA COM SUCESSO");
-                    btnLogin.setText("CONEXAO REALIZADA COM SUCESSO");
+                    setTitle("CONEXÃO REALIZADA COM SUCESSO");
+
                 else
-//                    setTitle("A CONEXÃO ESTÁ FECHADA");
-                    btnLogin.setText("CONEXAO ESTÁ FECHADA");
+                    setTitle("A CONEXÃO ESTÁ FECHADA");
+
             } else {
 //                setTitle("CONEXAO NULA, NÃO REALIZADA");
-                btnLogin.setText("CONEXAO NULA, NÃO REALIZADA");
+                Auxiliares.alert(getApplicationContext(), "CONEXÃO NULA, NÃO REALIZADA!");
 
             }
         } catch (java.sql.SQLException ex) {
             ex.printStackTrace();
 //            setTitle("CONEXÃO FALHOU!!!\n" + ex.getMessage());
-            btnLogin.setText("CONEXAO FALHOU");
+            Auxiliares.alert(getApplicationContext(), "CONEXÃO FALHOU!");
 
         }
     }

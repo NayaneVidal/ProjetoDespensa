@@ -9,6 +9,16 @@ public class AdicionarItensModel {
     private String spnnCategoria;
     private String spnnLocal;
 
+    public AdicionarItensModel(String nomeProd, String dataValidade, String tvQuantidade) {
+        this.nomeProd = nomeProd;
+        this.dataValidade = dataValidade;
+        this.tvQuantidade = tvQuantidade;
+    }
+
+    public AdicionarItensModel() {
+
+    }
+
     public String getSpnnLocal() {
         return spnnLocal;
     }

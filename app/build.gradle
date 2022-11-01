@@ -50,4 +50,7 @@ dependencies {
     //Maskara github - https://github.com/santalu/maskara.git
     implementation 'com.github.santalu:maskara:1.0.0'
 
+
+
+
 }

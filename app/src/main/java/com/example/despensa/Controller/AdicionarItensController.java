@@ -6,6 +6,9 @@ import com.example.despensa.API.ConexaoSQLServer;
 import com.example.despensa.Model.AdicionarItensModel;
 
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.Statement;
+import java.util.ArrayList;
 
 public class AdicionarItensController {
     public int cadastrarProdutos(AdicionarItensModel adicionarItensModel, Context context) {
@@ -36,28 +39,30 @@ public class AdicionarItensController {
 
         return resposta;
     }
-    public int cadastrarCategoria(AdicionarItensModel adicionarItensModel, Context context) {
-
-        //Se a resposta for 0 ou menor de 0 então o e-mail não foi encontrado
-        int resposta = 0;
+    public ArrayList<AdicionarItensModel> consultaProdutos(Context context) {
+        ArrayList<AdicionarItensModel> list = new ArrayList<>();
         try {
-            PreparedStatement pst = ConexaoSQLServer.conectar(context).prepareStatement(
-                    "SELECT CATEGORIA (descri_categ) values (?)"
 
-//            PreparedStatement pst = ConexaoSQLServer.conectar(context).prepareStatement(
-//                    "INSERT INTO USUARIO(email,senha) values (?,?)"
-//
-//
+            Statement stm = ConexaoSQLServer.conectar(context).createStatement();
 
-            );
-            pst.setString(1, adicionarItensModel.getSpnnCategoria());
-            resposta = pst.executeUpdate();
+            ResultSet rs = stm.executeQuery("Select NOME_PROD,QUANT,VALIDADE from PRODUTOS");
+
+            while (rs.next()) {
+                AdicionarItensModel adicionarItensModel = new AdicionarItensModel();
+
+                adicionarItensModel.setNomeProd(rs.getString(1));
+                adicionarItensModel.setTvQuantidade(rs.getString(2));
+                adicionarItensModel.setDataValidade(rs.getString(3));
+
+                list.add(adicionarItensModel);
+            }
 
         } catch (Exception e) {
             e.getMessage();
         }
-
-        return resposta;
+        return list;
     }
+  }
 
-}
+
+
