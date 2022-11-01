@@ -7,11 +7,11 @@
 
     <ImageView
         android:id="@+id/ivIconeProduto"
-        android:layout_width="105dp"
-        android:layout_height="113dp"
+        android:layout_width="85dp"
+        android:layout_height="83dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintHorizontal_bias="0.018"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/icone_bolsa_de_compras_tela_login" />
@@ -51,36 +51,36 @@
         android:textSize="16sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.378"
+        app:layout_constraintHorizontal_bias="0.336"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.858" />
 
     <Button
         android:id="@+id/btnEditarListaProd"
-        android:layout_width="71dp"
-        android:layout_height="40dp"
+        android:layout_width="64dp"
+        android:layout_height="36dp"
         android:background="@drawable/custom_button_lista_produtos"
         android:text="EDITAR"
         android:textColor="#48A3A7"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.938"
+        app:layout_constraintHorizontal_bias="0.939"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.168" />
+        app:layout_constraintVertical_bias="0.313" />
 
     <Button
         android:id="@+id/btnExcluirListaProd"
-        android:layout_width="70dp"
-        android:layout_height="41dp"
+        android:layout_width="63dp"
+        android:layout_height="35dp"
         android:background="@drawable/custom_button_lista_produtos"
         android:text="EXCLUIR"
         android:textColor="#48A3A7"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.938"
+        app:layout_constraintHorizontal_bias="0.939"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.712" />
+        app:layout_constraintVertical_bias="0.74" />
 </androidx.constraintlayout.widget.ConstraintLayout>

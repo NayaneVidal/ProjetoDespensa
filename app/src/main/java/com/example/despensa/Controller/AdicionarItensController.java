@@ -62,6 +62,52 @@ public class AdicionarItensController {
         }
         return list;
     }
+    public ArrayList<AdicionarItensModel> consultaProdutosGeladeira(Context context) {
+        ArrayList<AdicionarItensModel> list = new ArrayList<>();
+        try {
+
+            Statement stm = ConexaoSQLServer.conectar(context).createStatement();
+
+            ResultSet rs = stm.executeQuery("Select NOME_PROD,QUANT,VALIDADE from PRODUTOS where id_local = '1'");
+
+            while (rs.next()) {
+                AdicionarItensModel adicionarItensModel = new AdicionarItensModel();
+
+                adicionarItensModel.setNomeProd(rs.getString(1));
+                adicionarItensModel.setTvQuantidade(rs.getString(2));
+                adicionarItensModel.setDataValidade(rs.getString(3));
+
+                list.add(adicionarItensModel);
+            }
+
+        } catch (Exception e) {
+            e.getMessage();
+        }
+        return list;
+    }
+    public ArrayList<AdicionarItensModel> consultaProdutosArmario(Context context) {
+        ArrayList<AdicionarItensModel> list = new ArrayList<>();
+        try {
+
+            Statement stm = ConexaoSQLServer.conectar(context).createStatement();
+
+            ResultSet rs = stm.executeQuery("Select NOME_PROD,QUANT,VALIDADE from PRODUTOS where id_local = '2'");
+
+            while (rs.next()) {
+                AdicionarItensModel adicionarItensModel = new AdicionarItensModel();
+
+                adicionarItensModel.setNomeProd(rs.getString(1));
+                adicionarItensModel.setTvQuantidade(rs.getString(2));
+                adicionarItensModel.setDataValidade(rs.getString(3));
+
+                list.add(adicionarItensModel);
+            }
+
+        } catch (Exception e) {
+            e.getMessage();
+        }
+        return list;
+    }
   }
 
 
