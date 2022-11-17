@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.SearchView;
 
 import androidx.appcompat.app.AlertDialog;
@@ -18,6 +19,7 @@ public class TelaInicial extends AppCompatActivity {
     AlertDialog dialog;
     Button btnPopupGeral, btnPopupGeladeira, btnPopupArmario;
     SearchView svBuscar;
+    ImageView imgQuemSomos;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -80,7 +82,19 @@ public class TelaInicial extends AppCompatActivity {
             }
 
         });
+        imgQuemSomos.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                dialogBuilder = new AlertDialog.Builder(TelaInicial.this);
+                final View contactPopupView = getLayoutInflater().inflate(R.layout.popup_quem_somos, null);
 
+
+                dialogBuilder.setView(contactPopupView);
+                dialog = dialogBuilder.create();
+                dialog.show();
+            }
+
+        });
 
  //       Bundle extra = getIntent().getExtras();
  //       String usuarioInformado = " ";
@@ -96,6 +110,7 @@ public class TelaInicial extends AppCompatActivity {
         imgbtnAdd = findViewById(R.id.imgbtnAdd);
         imgbtnHistorico = findViewById(R.id.imgbtnHistorico);
         imgbtnLista = findViewById(R.id.imgbtnLista);
+        imgQuemSomos = findViewById(R.id.imgQuemSomos);
     }
 
 

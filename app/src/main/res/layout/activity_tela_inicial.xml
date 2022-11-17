@@ -5,20 +5,6 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <ImageView
-        android:id="@+id/imgMenuToolbar"
-        android:layout_width="36dp"
-        android:layout_height="34dp"
-        android:clickable="true"
-        android:elevation="100dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.042"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.047"
-        app:srcCompat="@drawable/icone_menu_tela_inicial" />
-
     <ImageButton
         android:id="@+id/imgbtnLista"
         android:layout_width="81dp"
@@ -287,5 +273,18 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.031"
         app:srcCompat="@drawable/icone_bolsa_de_compras_tela_login" />
+
+    <ImageView
+        android:id="@+id/imgQuemSomos"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:elevation="100dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.041"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.049"
+        app:srcCompat="@drawable/icone_informacao_tela_inicial" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
