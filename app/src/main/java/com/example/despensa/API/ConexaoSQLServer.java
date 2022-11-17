@@ -25,7 +25,7 @@ public class ConexaoSQLServer {
 
 
 
-              conn= DriverManager.getConnection("jdbc:jtds:sqlserver://192.168.1.103;"+
+              conn= DriverManager.getConnection("jdbc:jtds:sqlserver://192.168.1.104;"+
                     "databaseName=DESPENSA;user=sa;password=123456;");
 
 //              conn= DriverManager.getConnection("jdbc:jtds:sqlserver://192.168.1.102;"+
