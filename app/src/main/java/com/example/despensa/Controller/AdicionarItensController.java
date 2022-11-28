@@ -45,14 +45,15 @@ public class AdicionarItensController {
 
             Statement stm = ConexaoSQLServer.conectar(context).createStatement();
 
-            ResultSet rs = stm.executeQuery("Select NOME_PROD,QUANT,VALIDADE from PRODUTOS");
+            ResultSet rs = stm.executeQuery("Select COD_PROD,NOME_PROD,QUANT,VALIDADE from PRODUTOS");
 
             while (rs.next()) {
                 AdicionarItensModel adicionarItensModel = new AdicionarItensModel();
 
-                adicionarItensModel.setNomeProd(rs.getString(1));
-                adicionarItensModel.setTvQuantidade(rs.getString(2));
-                adicionarItensModel.setDataValidade(rs.getString(3));
+                adicionarItensModel.setId(rs.getInt(1));
+                adicionarItensModel.setNomeProd(rs.getString(2));
+                adicionarItensModel.setTvQuantidade(rs.getString(3));
+                adicionarItensModel.setDataValidade(rs.getString(4));
 
                 list.add(adicionarItensModel);
             }
@@ -68,14 +69,15 @@ public class AdicionarItensController {
 
             Statement stm = ConexaoSQLServer.conectar(context).createStatement();
 
-            ResultSet rs = stm.executeQuery("Select NOME_PROD,QUANT,VALIDADE from PRODUTOS where id_local = '1'");
+            ResultSet rs = stm.executeQuery("Select COD_PROD,NOME_PROD,QUANT,VALIDADE from PRODUTOS where id_local = '1'");
 
             while (rs.next()) {
                 AdicionarItensModel adicionarItensModel = new AdicionarItensModel();
 
-                adicionarItensModel.setNomeProd(rs.getString(1));
-                adicionarItensModel.setTvQuantidade(rs.getString(2));
-                adicionarItensModel.setDataValidade(rs.getString(3));
+                adicionarItensModel.setId(rs.getInt(1));
+                adicionarItensModel.setNomeProd(rs.getString(2));
+                adicionarItensModel.setTvQuantidade(rs.getString(3));
+                adicionarItensModel.setDataValidade(rs.getString(4));
 
                 list.add(adicionarItensModel);
             }
@@ -91,14 +93,15 @@ public class AdicionarItensController {
 
             Statement stm = ConexaoSQLServer.conectar(context).createStatement();
 
-            ResultSet rs = stm.executeQuery("Select NOME_PROD,QUANT,VALIDADE from PRODUTOS where id_local = '2'");
+            ResultSet rs = stm.executeQuery("Select COD_PROD,NOME_PROD,QUANT,VALIDADE from PRODUTOS where id_local = '2'");
 
             while (rs.next()) {
                 AdicionarItensModel adicionarItensModel = new AdicionarItensModel();
 
-                adicionarItensModel.setNomeProd(rs.getString(1));
-                adicionarItensModel.setTvQuantidade(rs.getString(2));
-                adicionarItensModel.setDataValidade(rs.getString(3));
+                adicionarItensModel.setId(rs.getInt(1));
+                adicionarItensModel.setNomeProd(rs.getString(2));
+                adicionarItensModel.setTvQuantidade(rs.getString(3));
+                adicionarItensModel.setDataValidade(rs.getString(4));
 
                 list.add(adicionarItensModel);
             }
@@ -108,7 +111,21 @@ public class AdicionarItensController {
         }
         return list;
     }
-  }
+    public boolean excluirItemLista(String id, Context context) {
+        Boolean sucesso = false;
+        try {
+            Statement stm = ConexaoSQLServer.conectar(context).createStatement();
+            String sql = "";
+            sql = "DELETE FROM PRODUTOS WHERE COD_PROD =" + id;
+
+            stm.executeUpdate(sql);
+            sucesso = true;
+        } catch (Exception e) {
+            e.getMessage();
+        }
+        return sucesso;
+    }
+}
 
 
 

@@ -2,6 +2,7 @@ package com.example.despensa.View;
 
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageView;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -17,7 +18,9 @@ import java.util.List;
 
 public class HistoricoGeral extends AppCompatActivity {
     ImageView imgVoltarGer;
+    Button btnExcluirListaProd;
     AdicionarItensController adicionarItensController;
+
 
     List<AdicionarItensModel> consultaProdutos; //Linha dos dados
     RecyclerView recyclerView; //Objetos receberá os dados montados
@@ -42,7 +45,9 @@ public class HistoricoGeral extends AppCompatActivity {
             }
         });
 
+
     }
+
     private void carregaLista() {
         adicionarItensController = new AdicionarItensController();
 
@@ -50,7 +55,7 @@ public class HistoricoGeral extends AppCompatActivity {
         consultaProdutos = adicionarItensController.consultaProdutos(getApplicationContext());
 
         //Adaptador RecyclerView passando a lista de bolos
-        produtosAdapter = new ProdutosAdapter(consultaProdutos,HistoricoGeral.this);
+        produtosAdapter = new ProdutosAdapter(consultaProdutos, HistoricoGeral.this);
 
         //Add a Linha onde está no LinearLayout
 //        recyclerView.setLayoutManager(new LinearLayoutManager(getApplicationContext()));
@@ -58,9 +63,11 @@ public class HistoricoGeral extends AppCompatActivity {
         recyclerView.setLayoutManager(layoutManager);
         recyclerView.setHasFixedSize(true);
         recyclerView.setAdapter(produtosAdapter);
+
     }
 
     private void inicializarComponentes() {
-        imgVoltarGer=findViewById(R.id.imgVoltarGer);
+        imgVoltarGer = findViewById(R.id.imgVoltarGer);
+        btnExcluirListaProd = findViewById(R.id.btnExcluirListaProd);
     }
 }

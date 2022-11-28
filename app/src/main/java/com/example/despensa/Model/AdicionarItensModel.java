@@ -2,12 +2,21 @@ package com.example.despensa.Model;
 
 public class AdicionarItensModel {
 
+    private int id;
     private String ean;
     private String nomeProd;
     private String dataValidade;
     private String tvQuantidade;
     private String spnnCategoria;
     private String spnnLocal;
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
 
     public AdicionarItensModel(String nomeProd, String dataValidade, String tvQuantidade) {
         this.nomeProd = nomeProd;

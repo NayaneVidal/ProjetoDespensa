@@ -1,12 +1,15 @@
 package com.example.despensa.API;
 
 import android.content.Context;
+import android.content.DialogInterface;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.AlertDialog;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.despensa.Controller.AdicionarItensController;
@@ -15,7 +18,7 @@ import com.example.despensa.R;
 
 import java.util.List;
 
-public class ProdutosAdapter extends RecyclerView.Adapter<ProdutosAdapter.ViewHolder>{
+public class ProdutosAdapter extends RecyclerView.Adapter<ProdutosAdapter.ViewHolder> {
     @NonNull
 
     public List<AdicionarItensModel> listaProdutos;
@@ -44,9 +47,9 @@ public class ProdutosAdapter extends RecyclerView.Adapter<ProdutosAdapter.ViewHo
     public void onBindViewHolder(@NonNull ProdutosAdapter.ViewHolder holder, int position) {
         AdicionarItensModel objLinha = listaProdutos.get(position);
 
-//        TextView tvIdBolo = holder.rvIdBolo;
-//        tvIdBolo.setText(String.valueOf(objLinha.getId()));
-
+        TextView tvIdBolo = holder.rvIdProduto;
+        tvIdBolo.setText(String.valueOf(objLinha.getId()));
+        tvIdBolo.setText(" ");
 //        ========Carrega as Imagens===========
 
 //        ImageView tvImagemBolo = holder.rvImagemBolo;
@@ -61,11 +64,11 @@ public class ProdutosAdapter extends RecyclerView.Adapter<ProdutosAdapter.ViewHo
         tvNomeProdLista.setText(objLinha.getNomeProd());
 
         TextView tvQuantProdLista = holder.rvQuantProduto;
-        tvQuantProdLista.setText("Quantidade: "+objLinha.getTvQuantidade());
+        tvQuantProdLista.setText("Quantidade: " + objLinha.getTvQuantidade());
 
 
         TextView tvDtValiLista = holder.rvValidadeProduto;
-        tvDtValiLista.setText("Validade: "+objLinha.getDataValidade());
+        tvDtValiLista.setText("Validade: " + objLinha.getDataValidade());
 
     }
 
@@ -74,42 +77,62 @@ public class ProdutosAdapter extends RecyclerView.Adapter<ProdutosAdapter.ViewHo
         return listaProdutos.size();
     }
 
-    public class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
+    public class ViewHolder extends RecyclerView.ViewHolder {
 
-//        public TextView rvIdBolo;
-//        public ImageView rvImagemBolo;
+        public TextView rvIdProduto;
+        //        public ImageView rvImagemBolo;
         public TextView rvNomeProduto;
         public TextView rvQuantProduto;
         public TextView rvValidadeProduto;
+        public Button btnExcluirListaProd;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
 
-//            rvIdBolo = itemView.findViewById(R.id.tvIdBolo);
+            rvIdProduto = itemView.findViewById(R.id.tvIdProduto);
 //            rvImagemBolo = itemView.findViewById(R.id.ivBolo);
             rvNomeProduto = itemView.findViewById(R.id.tvNomeProdLista);
             rvQuantProduto = itemView.findViewById(R.id.tvQuantProdLista);
             rvValidadeProduto = itemView.findViewById(R.id.tvDtValiLista);
 
-            itemView.setOnClickListener(this);
+            btnExcluirListaProd = itemView.findViewById(R.id.btnExcluirListaProd);
+
+
+            btnExcluirListaProd.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    excluirItemLista();
+                }
+            });
         }
 
-        @Override
-        public void onClick(View v) {
+        private void excluirItemLista() {
+            AlertDialog.Builder excluir = new AlertDialog.Builder(aContext);
+            excluir.setTitle("Excluir item");
+            excluir.setMessage("Tem certeza que deseja excluir?");
+            excluir.setCancelable(false);
 
-            adicionarItensController = new AdicionarItensController();
+            excluir.setPositiveButton("Não", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialogInterface, int i) {
+                            dialogInterface.cancel();
+                        }
+                    }
+            );
+            excluir.setNegativeButton("Sim", new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialogInterface, int i) {
+                    adicionarItensController = new AdicionarItensController();
+                    adicionarItensController.excluirItemLista(rvIdProduto.getText().toString(), aContext);
+                    int position = getAdapterPosition();
+                    listaProdutos.remove(position);
+                    notifyItemRemoved(position);
+                }
 
-            //Grava no Frag o valor 1 para consultar os itens do pedido
-//            adicionarItensController.alterarItemDoPedido(rvIdBolo.getText().toString(), aContext);
-
-//            Intent intent = new Intent(aContext, ItensDoPedido.class);
-//
-//            //Passando o id do Bolo e o valor
-//            intent.putExtra("chave", rvIdBolo.getText().toString());
-//            intent.putExtra("chaveValorBolo", rvPrecoBolo.getText().toString());
-//            intent.putExtra("contextPedido", "aContext");
-//            intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-//            aContext.startActivity(intent);
+            });
+            excluir.create().show();
         }
+
     }
 }
+
