@@ -93,7 +93,6 @@ public class TelaCadastro extends AppCompatActivity {
         edtNomeCadastro = findViewById(R.id.edtNomeCadastro);
         edtEmailCad = findViewById(R.id.edtEmailCad);
         edtSenhaCad = findViewById(R.id.edtSenhaCad);
-        edtQuantPess = findViewById(R.id.edtQuantPess);
         btnCadastro = findViewById(R.id.btnCadastro);
         tvEntrarConta = findViewById(R.id.tvEntrarConta);
     }

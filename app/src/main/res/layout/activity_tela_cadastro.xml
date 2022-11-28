@@ -89,33 +89,6 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.594" />
 
-    <EditText
-        android:id="@+id/edtQuantPess"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginEnd="8dp"
-        android:background="@drawable/custom_edit_text_login_cadastro"
-        android:backgroundTint="#2CFFFFFF"
-        android:cursorVisible="true"
-        android:ems="15"
-        android:gravity="center|left"
-        android:hint="  Quantidade de membros"
-        android:inputType="number"
-        android:minHeight="48dp"
-        android:singleLine="false"
-        android:textColor="#FFFFFF"
-        android:textColorHighlight="#FFFFFF"
-        android:textColorHint="#ADFFFFFF"
-        android:textColorLink="#FFFFFF"
-        android:textCursorDrawable="@drawable/custom_cursor"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.704" />
-
     <Button
         android:id="@+id/btnCadastro"
         android:layout_width="138dp"
@@ -130,10 +103,10 @@
         app:cornerRadius="30dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.474"
+        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.804"
+        app:layout_constraintVertical_bias="0.743"
         app:strokeColor="#F0FFFFFF"
         app:strokeWidth="1dp" />
 
@@ -151,7 +124,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.852" />
+        app:layout_constraintVertical_bias="0.793" />
 
     <ImageView
         android:id="@+id/imageView5"
@@ -191,19 +164,6 @@
         app:layout_constraintBottom_toTopOf="@+id/edtEmailCad"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/edtNomeCadastro" />
-
-    <TextView
-        android:id="@+id/tvQuantMembrosCad"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="48dp"
-        android:layout_marginBottom="5dp"
-        android:text="Quantas pessoas tem na sua casa?"
-        android:textColor="#FBFBFB"
-        app:layout_constraintBottom_toTopOf="@+id/edtQuantPess"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/edtSenhaCad"
-        app:layout_constraintVertical_bias="1.0" />
 
     <TextView
         android:id="@+id/tvSenhaCad"

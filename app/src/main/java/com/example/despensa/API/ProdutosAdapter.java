@@ -49,7 +49,7 @@ public class ProdutosAdapter extends RecyclerView.Adapter<ProdutosAdapter.ViewHo
 
         TextView tvIdBolo = holder.rvIdProduto;
         tvIdBolo.setText(String.valueOf(objLinha.getId()));
-        tvIdBolo.setText(" ");
+//        tvIdBolo.setText(" ");
 //        ========Carrega as Imagens===========
 
 //        ImageView tvImagemBolo = holder.rvImagemBolo;
@@ -80,7 +80,6 @@ public class ProdutosAdapter extends RecyclerView.Adapter<ProdutosAdapter.ViewHo
     public class ViewHolder extends RecyclerView.ViewHolder {
 
         public TextView rvIdProduto;
-        //        public ImageView rvImagemBolo;
         public TextView rvNomeProduto;
         public TextView rvQuantProduto;
         public TextView rvValidadeProduto;
@@ -90,7 +89,6 @@ public class ProdutosAdapter extends RecyclerView.Adapter<ProdutosAdapter.ViewHo
             super(itemView);
 
             rvIdProduto = itemView.findViewById(R.id.tvIdProduto);
-//            rvImagemBolo = itemView.findViewById(R.id.ivBolo);
             rvNomeProduto = itemView.findViewById(R.id.tvNomeProdLista);
             rvQuantProduto = itemView.findViewById(R.id.tvQuantProdLista);
             rvValidadeProduto = itemView.findViewById(R.id.tvDtValiLista);

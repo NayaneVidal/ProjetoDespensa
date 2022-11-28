@@ -127,7 +127,7 @@
         android:id="@+id/tvCriarConta"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="112dp"
+        android:layout_marginStart="104dp"
         android:layout_marginTop="16dp"
         android:clickable="true"
         android:gravity="center"
@@ -137,6 +137,6 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.768" />
+        app:layout_constraintVertical_bias="0.764" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
